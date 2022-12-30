@@ -1,0 +1,40 @@
+<main>
+  <!--Camino de migas-->
+  <div class=" d-none d-sm-block">
+    <div class="container-fluid bg-dark breadcrumb">
+      <nav aria-label="breadcrumb">
+        <div class="container-fluid">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item hover"><a href="#">
+                <fa-icon [icon]="faHome"></fa-icon> Home
+              </a></li>
+            <li class="breadcrumb-item active current-page" aria-current="page">
+              <fa-icon [icon]="faBuildingColumns"></fa-icon> Museums
+            </li>
+          </ol>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!--Litado de museos-->
+  <div class="container-fluids list-margin">
+    <div class="row ">
+      <div class="col-12 col-md-6 col-lg-3" *ngFor="let museum of museums">
+        <div class="card top-buffer card-margin">
+          <div class="hover-opacity">
+            <!-- <a [routerLink]="['/museums/detail', museum.id]">
+              <img src="{{ museum.image }}" class="card-img-top" alt="{{ museum.name }}" />
+            </a> -->
+            <a>
+              <img src="{{ museum.image }}" class="card-img-top" alt="{{ museum.name }}" />
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="card-title"><span class="submenu-color fw-bold">{{ museum.name }}</span></p>
+            <p class="card-text">{{ museum.city }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,8 @@
+.hover:hover {
+  border-bottom: 5px solid rgb(139, 167, 235);
+  padding-bottom: 10px;
+}
+
+h2{
+font-size: 1.3rem;
+}

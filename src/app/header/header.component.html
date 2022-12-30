@@ -1,0 +1,39 @@
+<!--Barra de navegacion-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white" id="main-navbar">
+  <div class="container-fluid">
+    <h1>
+      <a class="navbar-brand" href="#" id="logo-app">
+        <img src="https://www.inqnable.es/imagenes/museo.png" alt="Logo">
+      </a>
+    </h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item" id="link-home">
+          <a class="nav-link {{menuOptions.get('Menu')}}" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle {{menuOptions.get('museumsMenu')}}" href="#" id="menuMuseums" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Museums
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="menuMuseums">
+            <li><a class="dropdown-item" [routerLink]="['museums']">List</a></li>
+            <li><a class="dropdown-item" [routerLink]="['museums/create']">Create</a></li>
+            <li><a class="dropdown-item" [routerLink]="['museums/update']">Update</a></li>
+            <li><a class="dropdown-item" [routerLink]="['museums/delete']">Delete</a></li>
+          </ul>
+        </li>
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Buscar en esta página" aria-label="Search">
+        <button class="btn btn-primary" type="submit" aria-label="acción Buscar">
+          <fa-icon [icon]="faSearch"></fa-icon>
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>
