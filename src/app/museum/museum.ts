@@ -5,6 +5,7 @@ export class Museum {
   city: string;
   address: string;
   image: string;
+  isBlocked?: boolean;
 
   constructor(
     id: number,
@@ -12,7 +13,8 @@ export class Museum {
     description: string,
     city: string,
     address: string,
-    image: string
+    image: string,
+    isBlocked?: boolean
   ) {
     this.id = id;
     this.name = name;
@@ -20,5 +22,6 @@ export class Museum {
     this.city = city;
     this.address = address;
     this.image = image;
+    this.isBlocked = isBlocked;
   }
 }

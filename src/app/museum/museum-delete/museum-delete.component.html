@@ -1,0 +1,28 @@
+<main class="col-md-12 ms-sm-auto col-lg-12 px-md-4">
+  <div class="container-fluids main-margin" *ngIf="museum !== undefined">
+    <!--Contenedor principal de la pagina-->
+    <div class="row main-title">
+      <div class="container-fluids text-center">
+        <h2 class="text-center" id="lblDeleteMuseum">Delete museum</h2>
+      </div>
+    </div>
+    <div class="row main-margin">
+      <div class="container-fluids text-center">
+        <h3 id="confirm-message">Are you sure you want to delete "{{ museum.name }}"?</h3>
+      </div>
+    </div>
+    <div class="row main-margin">
+      <div class="container">
+        <div class="text-center">
+          <!--Buttons-->
+          <button type="submit" class="btn btn-success formMargin" (click)="deleteMuseum(museum.id)">
+            Confirmar
+          </button>
+          <button type="button" class="btn btn-danger formMargin" (click)="cancelUpdate(museum.id)">
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

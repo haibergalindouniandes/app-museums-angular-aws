@@ -1,0 +1,87 @@
+<main>
+  <div class="container" *ngIf="museum !== undefined">
+    <h2 class="text-center formMargin" id="lblNewMuseum">Update {{museum.name}}</h2>
+    <form [formGroup]="museumForm" (ngSubmit)="!museumForm.invalid && updateMuseum(museumForm.value)" id="updateForm">
+      <!--Name-->
+      <div class="form-group formMargin">
+        <label for="name">Name</label>
+        <input novalidate id="name" class="form-control" formControlName="name" placeholder="Museum name"/>
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+          museumForm.get('name')!.hasError('required') &&
+          museumForm.get('name')!.touched">
+          Name required
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show"
+          *ngIf="museumForm.get('name')!.hasError('minlength')">
+          Name too long
+        </div>
+      </div>
+      <!--Description-->
+      <div class="form-group formMargin">
+        <label for="description">Description</label>
+        <input novalidate id="description" class="form-control" formControlName="description"
+          placeholder="Museum description"/>
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+        museumForm.get('description')!.hasError('required') &&
+        museumForm.get('description')!.touched">
+          Description required
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show"
+          *ngIf="museumForm.get('description')!.hasError('maxlength')">
+          Description too long
+        </div>
+      </div>
+      <!--Address-->
+      <div class="form-group formMargin">
+        <label for="address">Address</label>
+        <input novalidate id="address" class="form-control" formControlName="address" placeholder="Museum address"/>
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+        museumForm.get('address')!.hasError('required') &&
+        museumForm.get('address')!.touched">
+          Address required
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show"
+          *ngIf="museumForm.get('address')!.hasError('maxlength')">
+          Address too long
+        </div>
+      </div>
+      <!--City-->
+      <div class="form-group formMargin">
+        <label for="city">City</label>
+        <input novalidate id="city" class="form-control" formControlName="city" placeholder="Museum city"/>
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+        museumForm.get('city')!.hasError('required') &&
+        museumForm.get('city')!.touched">
+          City required
+        </div>
+        <div class="alert alert-danger alert-dismissible fade show"
+          *ngIf="museumForm.get('city')!.hasError('maxlength')">
+          City too long
+        </div>
+      </div>
+      <!--Image-->
+      <div class="form-group formMargin">
+        <label for="image">Image</label>
+        <input novalidate id="image" class="form-control" formControlName="image"
+          placeholder="URL with the image of the museum"/>
+        <div class="alert alert-danger alert-dismissible fade show" *ngIf="
+          museumForm.get('image')!.hasError('required') &&
+          museumForm.get('image')!.touched">
+          Image required
+        </div>
+      </div>
+      <!--Is Blocked-->
+      <div class="form-group formMargin form-check">
+        <input novalidate id="isBlocked" class="form-check-input" type="checkbox" formControlName="isBlocked"/>
+        <label class="form-check-label" for="isBlocked">Museum is blocked</label>
+      </div>
+      <!--Buttons-->
+      <button type="submit" class="btn btn-primary formMargin" [disabled]="!museumForm.valid">
+        Update
+      </button>
+      <button type="button" class="btn btn-danger formMargin" (click)="cancelUpdate(museum.id)">
+        Cancel
+      </button>
+    </form>
+  </div>
+</main>

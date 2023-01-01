@@ -1,0 +1,38 @@
+<main>
+  <!--Carousel de museos-->
+  <div class="row carousel-margin">
+    <div class="container">
+      <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+        <div class="carousel-indicators">
+          <button type="button" *ngFor="let museum of museums, let indexMuseums = index"
+            data-bs-target="#carouselExampleIndicators" [attr.data-bs-slide-to]="indexMuseums" aria-current="true"
+            [ngClass]="{'active': indexMuseums === 1}" [attr.aria-label]="museum.name"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let museum of museums, let indexMuseums = index"
+            [ngClass]="{'active': indexMuseums === 1}">
+            <a [routerLink]="['/museums/detail', museum.id]">
+              <img class="d-block w-100" src={{museum.image}} title={{museum.name}} alt={{museum.name}} />
+            </a>
+            <div class="hidden">
+              <div class="carousel-caption carousel-bg d-none d-sm-block">
+                <h5>{{museum.name}}</h5>
+                <p>{{museum.description}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+          data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</main>

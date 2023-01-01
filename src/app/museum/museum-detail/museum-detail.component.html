@@ -1,0 +1,83 @@
+<main>
+  <div class="row" *ngIf="museum !== undefined">
+    <!--Camino de migas-->
+    <div class=" d-none d-sm-block">
+      <div class="row bg-dark">
+        <nav aria-label="breadcrumb d-none d-sm-block">
+          <div class="container-fluid">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item hover"><a href="#">
+                  <fa-icon [icon]="faHome"></fa-icon> Home
+                </a>
+              </li>
+              <li class="breadcrumb-item hover"><a [routerLink]="'/museums'">
+                  <fa-icon [icon]="faBuildingColumns"></fa-icon> Museums
+                </a>
+              </li>
+              <li class="breadcrumb-item active current-page" aria-current="page">
+                <fa-icon [icon]="faBuildingColumns"></fa-icon> {{ museum.name }}
+              </li>
+            </ol>
+          </div>
+        </nav>
+      </div>
+    </div>
+    <!--Sidebar lateral-->
+    <div class="row margin-lateral-nav" id="later-menu">
+      <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse" aria-label="Site menu">
+        <div class="position-sticky pt-3">
+          <!--Listado de Exhibiciones-->
+          <p class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+            <span class="submenu-color fw-bold">Actions</span>
+          </p>
+          <ul class="nav flex-column" id="container-exhibitions-list">
+            <li class="nav-item submenu-hover">
+              <a class="nav-link a-color-ink" aria-current="page" [routerLink]="['/museums/update', museum.id]">
+                <fa-icon [icon]="faEdit"></fa-icon> Edit museum
+              </a>
+            </li>
+            <li class="nav-item submenu-hover">
+              <a class="nav-link a-color-ink" aria-current="page" [routerLink]="['/museums/delete', museum.id]">
+                <fa-icon [icon]="faDeleteLeft"></fa-icon> Delete museum
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div class="container-fluids main-margin">
+          <!--Contenedor principal de la pagina-->
+          <div class="row main-title">
+            <div class="container-fluids text-center">
+              <h2 id="museum-name">{{ museum.name }}</h2>
+            </div>
+          </div>
+          <div class="row main-margin">
+            <div class="container-fluids text-center">
+              <img [src]="museum.image" class="img-fluid" alt="museum.name">
+            </div>
+          </div>
+          <div class="row main-margin">
+            <div class="container">
+              <div>
+                <h3>General information</h3>
+                <p>{{ museum.description }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="container">
+                <h3>Location</h3>
+                <div id="museum-city">
+                  <span class="text-bold">Museum city: </span>{{ museum.city }}
+                </div>
+                <div id="museum-address">
+                  <span class="text-bold">Museum address: </span>{{ museum.address }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</main>

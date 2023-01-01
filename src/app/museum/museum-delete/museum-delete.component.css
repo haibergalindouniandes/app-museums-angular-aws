@@ -1,0 +1,15 @@
+.main-title {
+  color: rgb(2, 2, 2);
+  margin: 1%;
+}
+
+.main-margin {
+  margin: 3%;
+}
+
+img {
+  width: 100%;
+  max-height: 500px;
+  object-position: bottom;
+  border-radius: 3px;
+}

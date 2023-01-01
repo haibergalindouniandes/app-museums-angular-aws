@@ -3,14 +3,22 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RouterModule } from '@angular/router';
 import { MuseumListComponent } from './museum-list/museum-list.component';
+import { MuseumCreateComponent } from './museum-create/museum-create.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MuseumDetailComponent } from './museum-detail/museum-detail.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MuseumUpdateComponent } from './museum-update/museum-update.component';
+import { MuseumDeleteComponent } from './museum-delete/museum-delete.component';
 
 @NgModule({
   imports: [
     CommonModule,
     FontAwesomeModule,
     RouterModule,
+    ReactiveFormsModule,
+    NgbModule
   ],
-  exports: [MuseumListComponent],
-  declarations: [MuseumListComponent]
+  exports: [MuseumListComponent, MuseumCreateComponent, MuseumDetailComponent, MuseumUpdateComponent, MuseumDeleteComponent],
+  declarations: [MuseumListComponent, MuseumCreateComponent, MuseumDetailComponent, MuseumUpdateComponent, MuseumDeleteComponent]
 })
 export class MuseumModule { }

@@ -23,9 +23,7 @@ export class MuseumListComponent implements OnInit {
 
   getMuseums(): void {
     this.authService.login(environment.userApi, environment.passwordApi).subscribe((token) => {
-      console.log(token)
       this.museumService.getMuseums(token.token).subscribe((museumsResponse) => {
-        console.log(museumsResponse)
         this.museums = museumsResponse.data;
       });
     });
