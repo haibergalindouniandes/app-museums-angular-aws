@@ -9,18 +9,19 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 })
 export class HeaderComponent implements OnDestroy {
 
+  // Declaramos los iconos a usar en la vista
   faSearch = faSearch;
+  // Declaramos variables a utilizar
   menuOptions = new Map();
   event$
 
   constructor(private location: Location) {
     this.event$ = location.onUrlChange((path) => {
-      /* istanbul ignore next */
       this.getNavActiveMenu(path);
     })
   }
 
-  /* istanbul ignore next */
+  //Método que retorna el menú de navegación actual
   getNavActiveMenu(path: string) {
     this.menuOptions.clear();
     let menu = path.split('/')[1].replace('/', '') + 'Menu';

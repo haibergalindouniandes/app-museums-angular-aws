@@ -9,6 +9,7 @@ import { MuseumDetailComponent } from './museum-detail/museum-detail.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MuseumUpdateComponent } from './museum-update/museum-update.component';
 import { MuseumDeleteComponent } from './museum-delete/museum-delete.component';
+import { MuseumUnlockComponent } from './museum-unlock/museum-unlock.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,21 @@ import { MuseumDeleteComponent } from './museum-delete/museum-delete.component';
     ReactiveFormsModule,
     NgbModule
   ],
-  exports: [MuseumListComponent, MuseumCreateComponent, MuseumDetailComponent, MuseumUpdateComponent, MuseumDeleteComponent],
-  declarations: [MuseumListComponent, MuseumCreateComponent, MuseumDetailComponent, MuseumUpdateComponent, MuseumDeleteComponent]
+  exports: [
+    MuseumListComponent,
+    MuseumCreateComponent,
+    MuseumDetailComponent,
+    MuseumUpdateComponent,
+    MuseumDeleteComponent,
+    MuseumUnlockComponent
+  ],
+  declarations: [
+    MuseumListComponent,
+    MuseumCreateComponent,
+    MuseumDetailComponent,
+    MuseumUpdateComponent,
+    MuseumDeleteComponent,
+    MuseumUnlockComponent
+  ]
 })
 export class MuseumModule { }

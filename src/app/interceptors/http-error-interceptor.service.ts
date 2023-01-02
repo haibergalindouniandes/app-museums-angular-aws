@@ -8,10 +8,12 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
+
 export class HttpErrorInterceptorService extends HttpErrorResponse {
 
   constructor(private toastrService: ToastrService, private router: Router) { super(toastrService) }
 
+  //Método que permite interceptar y manipular un error generado de tipo http
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request)
       .pipe(

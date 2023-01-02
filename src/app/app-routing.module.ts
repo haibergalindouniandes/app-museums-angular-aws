@@ -5,6 +5,7 @@ import { MuseumCreateComponent } from './museum/museum-create/museum-create.comp
 import { MuseumDeleteComponent } from './museum/museum-delete/museum-delete.component';
 import { MuseumDetailComponent } from './museum/museum-detail/museum-detail.component';
 import { MuseumListComponent } from './museum/museum-list/museum-list.component';
+import { MuseumUnlockComponent } from './museum/museum-unlock/museum-unlock.component';
 import { MuseumUpdateComponent } from './museum/museum-update/museum-update.component';
 
 const routes: Routes = [
@@ -36,6 +37,11 @@ const routes: Routes = [
   {
     path: 'museums/delete/:id',
     component: MuseumDeleteComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'museums/unblock',
+    component: MuseumUnlockComponent,
     pathMatch: 'full'
   }
 ];

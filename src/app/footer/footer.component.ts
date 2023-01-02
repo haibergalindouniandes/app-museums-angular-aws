@@ -11,6 +11,7 @@ import { faPhone, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 })
 export class FooterComponent implements OnInit {
 
+  // Declaramos los iconos a usar en la vista
   faFacebookF = faFacebookF;
   faTwitter = faTwitter;
   faInstagram = faInstagram;
@@ -18,6 +19,7 @@ export class FooterComponent implements OnInit {
   faLinkedin = faLinkedin;
   faPhone = faPhone;
   faEnvelope = faEnvelope;
+
   constructor() { }
 
   ngOnInit() {

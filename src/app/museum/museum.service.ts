@@ -15,24 +15,37 @@ export class MuseumService {
   constructor(private http: HttpClient) { }
 
   //Método que permite listar los museos
-  getMuseums(token: string, limit?: number): Observable<any> {
+  getMuseums(token: string, limit?: number, queryType?: string): Observable<any> {
     const httOptions = {
       headers: new HttpHeaders({
         'access-token': token,
       })
     }
+
+    if (limit && queryType) {
+      return this.http.get<any>(`${this.apiUrl}?limit=${limit}&queryType=${queryType}`, httOptions);
+    }
+
     if (limit) {
       return this.http.get<any>(`${this.apiUrl}?limit=${limit}`, httOptions);
     }
+
+    if (queryType) {
+      return this.http.get<any>(`${this.apiUrl}?queryType=${queryType}`, httOptions);
+    }
+
     return this.http.get<any>(this.apiUrl, httOptions);
   }
 
   //Método que permite consultar un museo por ID
-  getMuseum(museumId: number, token: string): Observable<any> {
+  getMuseum(museumId: number, token: string, forceQuery?: boolean): Observable<any> {
     const httOptions = {
       headers: new HttpHeaders({
         'access-token': token,
       })
+    }
+    if (forceQuery) {
+      return this.http.get<any>(`${this.apiUrl}/${museumId}?forceQuery=${true}`, httOptions);
     }
     return this.http.get<any>(`${this.apiUrl}/${museumId}`, httOptions);
   }
@@ -56,17 +69,26 @@ export class MuseumService {
     }
     //Utilzando el PUT para actualizar todo el museo
     return this.http.put<Museum>(`${this.apiUrl}/${museumId}`, museum, httOptions);
-    //Utilzando el PATH para actualizar solo la información enviada
-    // return this.http.patch<Museum>(`${this.apiUrl}/${museumId}`, museum, httOptions);
   }
 
-    //Método que permite eliminar un museo por ID
-    deleteMuseum(museumId: number, token: string): Observable<any> {
-      const httOptions = {
-        headers: new HttpHeaders({
-          'access-token': token,
-        })
-      }
-      return this.http.delete<any>(`${this.apiUrl}/${museumId}`, httOptions);
+  //Método que permite actualizar un museo de forma parcial
+  updateParcialMuseum(museumId: number, museum: any, token: string): Observable<Museum> {
+    const httOptions = {
+      headers: new HttpHeaders({
+        'access-token': token,
+      })
     }
+    //Utilzando el PATH para actualizar solo la información enviada
+    return this.http.patch<Museum>(`${this.apiUrl}/${museumId}`, museum, httOptions);
+  }
+
+  //Método que permite eliminar un museo por ID
+  deleteMuseum(museumId: number, token: string): Observable<any> {
+    const httOptions = {
+      headers: new HttpHeaders({
+        'access-token': token,
+      })
+    }
+    return this.http.delete<any>(`${this.apiUrl}/${museumId}`, httOptions);
+  }
 }

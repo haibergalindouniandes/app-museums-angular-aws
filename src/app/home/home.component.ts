@@ -11,10 +11,12 @@ import { MuseumService } from '../museum/museum.service';
 })
 export class HomeComponent implements OnInit {
 
+  // Declaramos variables a utilizar
   museums: Array<Museum> = [];
 
   constructor(private authService: AuthService, private museumService: MuseumService) { }
 
+  //Método que retorna maximo 10 museos registrados
   getMuseums(): void {
     this.authService.login(environment.userApi, environment.passwordApi).subscribe((token) => {
       this.museumService.getMuseums(token.token, environment.defaultLimitToQuery).subscribe((museumsResponse) => {

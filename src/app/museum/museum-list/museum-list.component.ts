@@ -11,6 +11,7 @@ import { faHome, faBuildingColumns } from "@fortawesome/free-solid-svg-icons";
   templateUrl: './museum-list.component.html',
   styleUrls: ['./museum-list.component.css']
 })
+
 export class MuseumListComponent implements OnInit {
   // Declaramos los iconos a usar en la vista
   faHome = faHome;
@@ -21,6 +22,7 @@ export class MuseumListComponent implements OnInit {
 
   constructor(private authService: AuthService, private museumService: MuseumService) { }
 
+  //Método que retorna todos los museos registrados
   getMuseums(): void {
     this.authService.login(environment.userApi, environment.passwordApi).subscribe((token) => {
       this.museumService.getMuseums(token.token).subscribe((museumsResponse) => {

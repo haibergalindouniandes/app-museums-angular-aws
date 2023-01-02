@@ -13,12 +13,14 @@ import { MuseumService } from "../museum.service";
 })
 export class MuseumDetailComponent implements OnInit {
 
+  // Declaramos los iconos a usar en la vista
   faAngleRight = faAngleRight;
   faHome = faHome;
   faBuildingColumns = faBuildingColumns;
   faEdit = faEdit;
   faDeleteLeft = faDeleteLeft;
 
+  // Declaramos variables a utilizar
   museum!: Museum;
 
   constructor(
@@ -27,6 +29,7 @@ export class MuseumDetailComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+  //Método que obtener un museo con base al ID
   getMuseumById(id: number): void {
     this.authService.login(environment.userApi, environment.passwordApi).subscribe((token) => {
       this.museumService.getMuseum(id, token.token).subscribe((museum) => {

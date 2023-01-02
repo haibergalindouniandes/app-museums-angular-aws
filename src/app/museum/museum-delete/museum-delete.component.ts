@@ -12,7 +12,10 @@ import { MuseumService } from "../museum.service";
   templateUrl: './museum-delete.component.html',
   styleUrls: ['./museum-delete.component.css']
 })
+
 export class MuseumDeleteComponent implements OnInit {
+
+  // Declaramos variables a utilizar
   token!: Token;
   museum!: Museum;
 
@@ -24,6 +27,7 @@ export class MuseumDeleteComponent implements OnInit {
     private museumService: MuseumService,
   ) { }
 
+  //Método que obtener un museo con base al ID
   getMuseumById(id: number): void {
     this.authService.login(environment.userApi, environment.passwordApi).subscribe((token) => {
       this.museumService.getMuseum(id, token.token).subscribe((museum) => {
@@ -32,6 +36,7 @@ export class MuseumDeleteComponent implements OnInit {
     });
   }
 
+  //Método que permite eliminar un museo con base al ID
   deleteMuseum(id: number): void {
     this.authService.login(environment.userApi, environment.passwordApi).subscribe((token) => {
       this.museumService.deleteMuseum(id, token.token).subscribe(museumDeleted => {
@@ -41,6 +46,7 @@ export class MuseumDeleteComponent implements OnInit {
     })
   }
 
+  //Método que permite navegar a la vista de detalle de un museo
   cancelUpdate(id: number): void {
     this.router.navigateByUrl(`museums/detail/${id}`);
   }

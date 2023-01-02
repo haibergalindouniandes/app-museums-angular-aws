@@ -12,6 +12,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './museum-create.component.html',
   styleUrls: ['./museum-create.component.css']
 })
+
 export class MuseumCreateComponent implements OnInit {
 
   // Declaramos variables a utilizar
@@ -24,6 +25,7 @@ export class MuseumCreateComponent implements OnInit {
     private museumService: MuseumService,
     private authService: AuthService) { }
 
+  //Método que permite registrar un nuevo museo
   createMuseum(museum: Museum) {
     this.authService.login(environment.userApi, environment.passwordApi).subscribe((token) => {
       this.museumService.createMuseum(museum, token.token).subscribe(museumCreated => {
@@ -33,6 +35,7 @@ export class MuseumCreateComponent implements OnInit {
     })
   }
 
+  //Método que permite limpiar el formulario de creación de museos
   cancelCreation() {
     this.museumForm.reset();
   }

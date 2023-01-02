@@ -1,0 +1,59 @@
+<main>
+  <!--Camino de migas-->
+  <div class=" d-none d-sm-block">
+    <div class="container-fluid bg-dark breadcrumb">
+      <nav aria-label="breadcrumb">
+        <div class="container-fluid">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item hover"><a href="#">
+                <fa-icon [icon]="faHome"></fa-icon> Home
+              </a></li>
+            <li class="breadcrumb-item active current-page" aria-current="page">
+              <fa-icon [icon]="faBuildingColumns"></fa-icon> Museums
+            </li>
+          </ol>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <!--Litado de museos-->
+  <div class="container-fluids list-margin">
+    <div class="row ">
+      <div class="col-12 col-md-6 col-lg-3" *ngFor="let museum of museums">
+        <div class="card top-buffer card-margin">
+          <div class="hover-opacity">
+            <a data-bs-toggle="modal" data-bs-target="#staticBackdrop" (mouseenter)="onSelected(museum)">
+              <img src="{{ museum.image }}" class="card-img-top" alt="{{ museum.name }}" />
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="card-title"><span class="submenu-color fw-bold">{{ museum.name }}</span></p>
+            <p class="card-text">{{ museum.city }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Confirm unblock modal -->
+  <div class="container" *ngIf="selected">
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+      aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="staticBackdropLabel">Confirm unblock museum</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cancel"></button>
+          </div>
+          <div class="modal-body">
+            <h4>Are you sure you want to unblock "{{selectedMuseum.name}}"?</h4>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="updateMuseum(selectedMuseum)"
+              data-bs-dismiss="modal">Confirm</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
