@@ -1,14 +1,14 @@
 <main>
-  <!--Camino de migas-->
+  <!--Breadcrumb trail-->
   <div class=" d-none d-sm-block">
     <div class="container-fluid bg-dark breadcrumb">
       <nav aria-label="breadcrumb">
         <div class="container-fluid">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item hover"><a href="#">
+            <li i18n class="breadcrumb-item hover"><a href="#">
                 <fa-icon [icon]="faHome"></fa-icon> Home
               </a></li>
-            <li class="breadcrumb-item active current-page" aria-current="page">
+            <li i18n class="breadcrumb-item active current-page" aria-current="page">
               <fa-icon [icon]="faBuildingColumns"></fa-icon> Museums
             </li>
           </ol>
@@ -16,7 +16,7 @@
       </nav>
     </div>
   </div>
-  <!--Litado de museos-->
+  <!--Museums list-->
   <div class="container-fluids list-margin">
     <div class="row ">
       <div class="col-12 col-md-6 col-lg-3" *ngFor="let museum of museums">

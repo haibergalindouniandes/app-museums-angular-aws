@@ -6,6 +6,7 @@ import { MuseumService } from '../museum.service';
 import { AuthService } from 'src/app/authentication/auth.service';
 import { Token } from '../../authentication/token';
 import { environment } from 'src/environments/environment';
+import { faHome, faBuildingColumns, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-museum-create',
@@ -15,6 +16,10 @@ import { environment } from 'src/environments/environment';
 
 export class MuseumCreateComponent implements OnInit {
 
+  // Declaramos los iconos a usar en la vista
+  faAngleRight = faAngleRight;
+  faHome = faHome;
+  faBuildingColumns = faBuildingColumns;
   // Declaramos variables a utilizar
   token!: Token;
   museumForm!: FormGroup;

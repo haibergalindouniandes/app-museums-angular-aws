@@ -1,16 +1,16 @@
 <main>
   <div class="row" *ngIf="museum !== undefined">
-    <!--Camino de migas-->
+    <!--Breadcrumb trail-->
     <div class=" d-none d-sm-block">
       <div class="row bg-dark">
         <nav aria-label="breadcrumb d-none d-sm-block">
           <div class="container-fluid">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item hover"><a href="#">
+              <li i18n class="breadcrumb-item hover"><a href="#">
                   <fa-icon [icon]="faHome"></fa-icon> Home
                 </a>
               </li>
-              <li class="breadcrumb-item hover"><a [routerLink]="'/museums'">
+              <li i18n class="breadcrumb-item hover"><a [routerLink]="'/museums'">
                   <fa-icon [icon]="faBuildingColumns"></fa-icon> Museums
                 </a>
               </li>
@@ -28,16 +28,16 @@
         <div class="position-sticky pt-3">
           <!--Listado de Exhibiciones-->
           <p class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
-            <span class="submenu-color fw-bold">Actions</span>
+            <span i18n class="submenu-color fw-bold">Actions</span>
           </p>
           <ul class="nav flex-column" id="container-exhibitions-list">
             <li class="nav-item submenu-hover">
-              <a class="nav-link a-color-ink" aria-current="page" [routerLink]="['/museums/update', museum.id]">
+              <a i18n class="nav-link a-color-ink" aria-current="page" [routerLink]="['/museums/update', museum.id]">
                 <fa-icon [icon]="faEdit"></fa-icon> Edit museum
               </a>
             </li>
             <li class="nav-item submenu-hover">
-              <a class="nav-link a-color-ink" aria-current="page" [routerLink]="['/museums/delete', museum.id]">
+              <a i18n class="nav-link a-color-ink" aria-current="page" [routerLink]="['/museums/delete', museum.id]">
                 <fa-icon [icon]="faDeleteLeft"></fa-icon> Delete museum
               </a>
             </li>
@@ -60,18 +60,18 @@
           <div class="row main-margin">
             <div class="container">
               <div>
-                <h3>General information</h3>
+                <h3 i18n>General information</h3>
                 <p>{{ museum.description }}</p>
               </div>
             </div>
             <div class="row">
               <div class="container">
-                <h3>Location</h3>
+                <h3 i18n>Location</h3>
                 <div id="museum-city">
-                  <span class="text-bold">Museum city: </span>{{ museum.city }}
+                  <span i18n class="text-bold">Museum city: </span>{{ museum.city }}
                 </div>
                 <div id="museum-address">
-                  <span class="text-bold">Museum address: </span>{{ museum.address }}
+                  <span i18n class="text-bold">Museum address: </span>{{ museum.address }}
                 </div>
               </div>
             </div>

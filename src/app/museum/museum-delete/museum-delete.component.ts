@@ -6,6 +6,7 @@ import { AuthService } from 'src/app/authentication/auth.service';
 import { Token } from '../../authentication/token';
 import { Museum } from '../museum';
 import { MuseumService } from "../museum.service";
+import { faHome, faBuildingColumns, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-museum-delete',
@@ -15,6 +16,10 @@ import { MuseumService } from "../museum.service";
 
 export class MuseumDeleteComponent implements OnInit {
 
+  // Declaramos los iconos a usar en la vista
+  faAngleRight = faAngleRight;
+  faHome = faHome;
+  faBuildingColumns = faBuildingColumns;
   // Declaramos variables a utilizar
   token!: Token;
   museum!: Museum;

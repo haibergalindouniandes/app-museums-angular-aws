@@ -1,24 +1,46 @@
-<main class="col-md-12 ms-sm-auto col-lg-12 px-md-4">
+<main>
+  <!--Breadcrumb trail-->
+  <div class=" d-none d-sm-block">
+    <div class="row bg-dark">
+      <nav aria-label="breadcrumb d-none d-sm-block">
+        <div class="container-fluid">
+          <ol class="breadcrumb">
+            <li i18n class="breadcrumb-item hover"><a href="#">
+                <fa-icon [icon]="faHome"></fa-icon> Home
+              </a>
+            </li>
+            <li i18n class="breadcrumb-item hover"><a [routerLink]="'/museums'">
+                <fa-icon [icon]="faBuildingColumns"></fa-icon> Museums
+              </a>
+            </li>
+            <li i18n class="breadcrumb-item active current-page" aria-current="page">
+              <fa-icon [icon]="faBuildingColumns"></fa-icon> Delete museum
+            </li>
+          </ol>
+        </div>
+      </nav>
+    </div>
+  </div>
   <div class="container-fluids main-margin" *ngIf="museum !== undefined">
-    <!--Contenedor principal de la pagina-->
+    <!--Main container of the page-->
     <div class="row main-title">
       <div class="container-fluids text-center">
-        <h2 class="text-center" id="lblDeleteMuseum">Delete museum</h2>
+        <h2 i18n class="text-center" id="lblDeleteMuseum">Delete museum</h2>
       </div>
     </div>
     <div class="row main-margin">
       <div class="container-fluids text-center">
-        <h3 id="confirm-message">Are you sure you want to delete "{{ museum.name }}"?</h3>
+        <h3 i18n id="confirm-message">Are you sure you want to delete "{{ museum.name }}"?</h3>
       </div>
     </div>
     <div class="row main-margin">
       <div class="container">
         <div class="text-center">
           <!--Buttons-->
-          <button type="submit" class="btn btn-primary formMargin" (click)="deleteMuseum(museum.id)">
+          <button i18n type="submit" class="btn btn-primary formMargin" (click)="deleteMuseum(museum.id)">
             Confirm
           </button>
-          <button type="button" class="btn btn-danger formMargin" (click)="cancelUpdate(museum.id)">
+          <button i18n type="button" class="btn btn-danger formMargin" (click)="cancelUpdate(museum.id)">
             Cancel
           </button>
         </div>

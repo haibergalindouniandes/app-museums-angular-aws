@@ -18,7 +18,7 @@ export class HttpErrorInterceptorService extends HttpErrorResponse {
     return next.handle(request)
       .pipe(
         catchError((httpErrorResponse: HttpErrorResponse) => {
-          console.log(httpErrorResponse);
+          // console.log(httpErrorResponse);
           let errorMesagge = '';
           let errorType = '';
           if (httpErrorResponse.error instanceof ErrorEvent) {
@@ -30,7 +30,7 @@ export class HttpErrorInterceptorService extends HttpErrorResponse {
               errorMesagge = "No hay conexión con el servidor";
             } else {
               if (httpErrorResponse.status === 409) {
-                this.router.navigateByUrl('/');
+                this.router.navigateByUrl('/museums');
               }
               errorMesagge = `${httpErrorResponse.status}: ${httpErrorResponse.error.error} - ${httpErrorResponse.error.message}`;
             }

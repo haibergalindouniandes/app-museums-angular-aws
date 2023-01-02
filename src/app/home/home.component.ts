@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   //Método que retorna maximo 10 museos registrados
   getMuseums(): void {
     this.authService.login(environment.userApi, environment.passwordApi).subscribe((token) => {
-      this.museumService.getMuseums(token.token, environment.defaultLimitToQuery).subscribe((museumsResponse) => {
+      this.museumService.getMuseums(token.token, environment.defaultLimitToQuery, 'unblocked').subscribe((museumsResponse) => {
         this.museums = museumsResponse.data;
       });
     });

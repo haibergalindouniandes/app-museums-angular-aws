@@ -9,6 +9,15 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "es": {
+            "translation": "src/locale/messages.es.xlf",
+            "baseHref": ""
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -32,6 +41,13 @@
             ]
           },
           "configurations": {
+            "es": {
+              "localize": [
+                "es"
+              ],
+              "outputPath": "dist/app-museums-angular-aws/",
+              "i18nMissingTranslation": "error"
+            },
             "production": {
               "budgets": [
                 {
@@ -67,6 +83,9 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "es": {
+              "browserTarget": "app-museums-angular-aws:build:es"
+            },
             "production": {
               "browserTarget": "app-museums-angular-aws:build:production"
             },

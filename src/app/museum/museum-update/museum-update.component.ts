@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 import { Token } from '../../authentication/token';
 import { Museum } from '../museum';
 import { MuseumService } from "../museum.service";
+import { faHome, faBuildingColumns, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 //Pattern para validar una URLS
 const urlRegex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/;
@@ -18,6 +19,10 @@ const urlRegex = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&
 })
 export class MuseumUpdateComponent implements OnInit {
 
+  // Declaramos los iconos a usar en la vista
+  faAngleRight = faAngleRight;
+  faHome = faHome;
+  faBuildingColumns = faBuildingColumns;
   // Declaramos variables a utilizar
   token!: Token;
   museumForm!: FormGroup;
@@ -32,6 +37,7 @@ export class MuseumUpdateComponent implements OnInit {
     private router: Router
   ) { }
 
+  //Método que obtener un museo con base al ID
   getMuseumById(id: number): void {
     this.authService.login(environment.userApi, environment.passwordApi).subscribe((token) => {
       this.museumService.getMuseum(id, token.token).subscribe((museum) => {
@@ -48,6 +54,7 @@ export class MuseumUpdateComponent implements OnInit {
     });
   }
 
+  //Método que permite actualizar la informacion de un nuevo museo
   updateMuseum(museum: Museum) {
     this.authService.login(environment.userApi, environment.passwordApi).subscribe((token) => {
       this.museumService.updateMuseum(this.museum.id, museum, token.token).subscribe(museumUpdate => {
@@ -56,6 +63,7 @@ export class MuseumUpdateComponent implements OnInit {
     })
   }
 
+  //Método que permite limpiar el formulario de creación de museos
   cancelUpdate(id: number) {
     this.router.navigateByUrl(`museums/detail/${id}`);
   }
