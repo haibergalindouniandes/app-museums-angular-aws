@@ -58,7 +58,7 @@ export class MuseumUpdateComponent implements OnInit {
   updateMuseum(museum: Museum) {
     this.authService.login(environment.userApi, environment.passwordApi).subscribe((token) => {
       this.museumService.updateMuseum(this.museum.id, museum, token.token).subscribe(museumUpdate => {
-        this.toastr.success("Confirmation", "Museum update");
+        this.toastr.success("Confirmation", "Museum update", { closeButton: true });
       })
     })
   }

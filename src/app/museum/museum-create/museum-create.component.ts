@@ -34,7 +34,7 @@ export class MuseumCreateComponent implements OnInit {
   createMuseum(museum: Museum) {
     this.authService.login(environment.userApi, environment.passwordApi).subscribe((token) => {
       this.museumService.createMuseum(museum, token.token).subscribe(museumCreated => {
-        this.toastr.success("Confirmation", "Museum created")
+        this.toastr.success("Confirmation", "Museum created", { closeButton: true });
         this.museumForm.reset();
       })
     })

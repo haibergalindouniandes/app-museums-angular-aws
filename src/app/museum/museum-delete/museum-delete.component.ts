@@ -45,7 +45,7 @@ export class MuseumDeleteComponent implements OnInit {
   deleteMuseum(id: number): void {
     this.authService.login(environment.userApi, environment.passwordApi).subscribe((token) => {
       this.museumService.deleteMuseum(id, token.token).subscribe(museumDeleted => {
-        this.toastr.success("Confirmation", museumDeleted.message);
+        this.toastr.success("Confirmation", museumDeleted.message, { closeButton: true });
         this.router.navigateByUrl('museums');
       })
     })
