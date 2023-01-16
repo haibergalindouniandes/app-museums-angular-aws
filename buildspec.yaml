@@ -9,32 +9,14 @@ phases:
       - echo "install nodejs"
   pre_build:
     commands:
-      ## Install NPM dependencies in both the Angular and Express source folders
-      - cd ng-cards ##Angular app source folder name
-      - npm install
-      - cd ../express
+      ## Install NPM dependencies in both the Angular
       - npm install ##Express app source folder name
       - cd ../
   build:
     commands:
       ## angular.josn outputPath is set to ../dist/public which is the Express apps static files folder.
-      - cd ng-cards
       - ng build --prod
-      - cd ../express
-      ## the tsconfig.json file for the Express app has the compilerOptions.outDir set to ../dist
-      - tsc
-      - cd ../
       - echo "build complete"
-  post_build:
-    commands:
-      ## the node server will need this to run the Express app
-      - cp ./express/package.json ./dist
-      ## this is used for the CodeDeploy Agent to install and run the app
-      - cp ./appspec.yml ./dist
-      ## this is used for systemctl to run the node app in the background
-      - cp ./studycards.service ./dist
-      ## these scripts will be used as part of the CodeDeploy process
-      - cp -r ./shScripts ./dist
 artifacts:
   files:
   ##this will take all files within the dist folder which will then be zipped by CodeBuild then stored in S3
