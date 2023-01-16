@@ -1,27 +1,23 @@
-version: 0.1
-
+version: 0.2
 phases:
   install:
+    runtime-versions:
+      nodejs: 16x
     commands:
-      - echo installing nodejs...
-      - curl -sL https://deb.nodesource.com/setup_16.x | bash -
-      - apt-get install -y nodejs
-      - echo installing yarn...
-      - curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-      - echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-      - apt install --no-install-recommends yarn
+      - npm i -g @angular/cli
+      - npm i -g typescript
+      - echo "install nodejs"
   pre_build:
     commands:
-      - echo installing dependencies...
-      - npm i -g @angular/cli
-      - npm install
+      ## Install NPM dependencies in both the Angular
+      - npm install ##Express app source folder name
   build:
     commands:
-      # - echo testing...
-      # - echo building...
+      ## angular.josn outputPath is set to ../dist/public which is the Express apps static files folder.
       - ng build
+      - echo "build complete"
 artifacts:
   files:
+  ##this will take all files within the dist folder which will then be zipped by CodeBuild then stored in S3
     - "**/*"
-  discard-paths: no
-  base-directory: dist/app-museums-angular-aws
+  base-directory: "dist/app-museums-angular-aws"
