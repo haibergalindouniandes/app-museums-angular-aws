@@ -8,10 +8,9 @@ phases:
       - npm install -g @angular/cli
       - npm install -g typescript
       - echo "install nodejs"
-      - npm install
   pre_build:
     commands:
-      - echo "install success"
+      - npm install
   build:
     commands:
       - echo Build started on `date`
