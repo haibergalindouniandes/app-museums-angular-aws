@@ -14,7 +14,7 @@ phases:
       ## Install NPM dependencies in both the Angular
       - echo installing dependencies...
       - npm i -g @angular/cli
-      - npm install ##Express app source folder name
+      - npm i
   build:
     commands:
       ## angular.josn outputPath is set to ../dist/public which is the Express apps static files folder.
