@@ -5,8 +5,10 @@ phases:
       nodejs: 16
     commands:
       - echo Installing source NPM dependencies...
+      - npm install -y npm@latest
       - npm install -g @angular/cli
       - npm install -g typescript
+      - rm package-lock.json
       - echo "install nodejs"
   pre_build:
     commands:
