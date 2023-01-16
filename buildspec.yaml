@@ -15,7 +15,7 @@ phases:
   build:
     commands:
       ## angular.josn outputPath is set to ../dist/public which is the Express apps static files folder.
-      - ng build --prod
+      - ng build
       - echo "build complete"
 artifacts:
   files:
